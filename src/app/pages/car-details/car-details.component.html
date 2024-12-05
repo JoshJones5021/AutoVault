@@ -1,0 +1,65 @@
+<div class="container mt-4">
+  <h2 class="text-center">Car Details</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card-container">
+        <form>
+          <div class="mb-3">
+            <label for="make" class="form-label">Make</label>
+            <input type="text" class="form-control" id="make" [value]="car.make" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="model" class="form-label">Model</label>
+            <input type="text" class="form-control" id="model" [value]="car.model" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" rows="3" readonly>{{ car.description }}</textarea>
+          </div>
+          <!-- Delete Car button -->
+          <div class="mt-3 text-center">
+            <button type="button" class="btn btn-danger" (click)="deleteCar()">Delete Car</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-container">
+        <!-- Media list container -->
+        <div class="media-list-container">
+          <ul class="list-group">
+            <li
+              class="list-group-item"
+              *ngFor="let media of car.media; let i = index"
+              [class.active]="i === currentMediaIndex"
+              (click)="selectMedia(i)"
+            >
+              {{ media.filePath.split('/').pop() }}
+            </li>
+          </ul>
+        </div>
+        <!-- Media display container -->
+        <div class="media-display-container mt-3">
+          <ng-container *ngIf="car.media && car.media.length > 0">
+            <ng-container [ngSwitch]="car.media[currentMediaIndex].type">
+              <img *ngSwitchCase="'image/jpeg'" [src]="getMediaUrl(car.media[currentMediaIndex].filePath)" class="d-block w-100" alt="{{ car.make }} {{ car.model }}">
+              <img *ngSwitchCase="'image/png'" [src]="getMediaUrl(car.media[currentMediaIndex].filePath)" class="d-block w-100" alt="{{ car.make }} {{ car.model }}">
+              <audio *ngSwitchCase="'audio/mpeg'" controls class="d-block w-100">
+                <source [src]="getMediaUrl(car.media[currentMediaIndex].filePath)" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+              <video *ngSwitchCase="'video/mp4'" controls class="d-block w-100">
+                <source [src]="getMediaUrl(car.media[currentMediaIndex].filePath)" type="video/mp4">
+                Your browser does not support the video element.
+              </video>
+            </ng-container>
+          </ng-container>
+        </div>
+        <!-- Delete Media button -->
+        <div class="mt-3 text-center">
+          <button type="button" class="btn btn-danger" (click)="deleteMedia()">Delete Selected Media</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

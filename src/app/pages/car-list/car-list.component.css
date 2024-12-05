@@ -1,0 +1,72 @@
+.container {
+  margin-top: 20px;
+}
+
+.car-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.car-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 16px;
+  width: 100%;
+}
+
+.car-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%; /* Ensure the card takes full width of the grid column */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* White background color */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.car-card:hover {
+  background-color: #f8f9fa; /* Change background color on hover */
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+}
+
+.car-details {
+  padding: 16px;
+}
+
+.car-details h5 {
+  margin: 0 0 8px;
+}
+
+.car-details p {
+  margin: 0;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: left; /* Align the filter container to the left */
+  width: 100%;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.page-item.disabled .page-link {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}

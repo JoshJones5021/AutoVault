@@ -1,0 +1,63 @@
+.container {
+  margin-top: 20px;
+}
+
+.media-list-container {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.media-display-container {
+  max-height: 400px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.list-group-item.active {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.card-container {
+  background-color: #ffffff; /* White background color */
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for a modern look */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+textarea#description {
+  height: 150px;
+  overflow-y: auto;
+  resize: none;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+h2.text-center {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #000000;
+}

@@ -1,0 +1,67 @@
+<div class="container mt-4">
+  <h2 class="text-center">Car List</h2>
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <div class="filter-container">
+        <label for="filter">Filter by:</label>
+        <select id="filter" [(ngModel)]="selectedFilter" (change)="onFilterChange()" class="form-select">
+          <option value="">None</option>
+          <option value="make">Make</option>
+          <option value="model">Model</option>
+        </select>
+
+        <ng-container *ngIf="selectedFilter">
+          <label for="subFilter">{{ selectedFilter | titlecase }}:</label>
+          <select id="subFilter" [(ngModel)]="selectedSubFilter" (change)="applySearch()" class="form-select">
+            <option value="">All</option>
+            <option *ngFor="let option of subFilterOptions" [value]="option">{{ option }}</option>
+          </select>
+        </ng-container>
+
+        <label for="search">Search:</label>
+        <input
+          id="search"
+          type="text"
+          [(ngModel)]="searchText"
+          placeholder="Search cars"
+          (input)="applySearch()"
+          class="form-control"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="car-list">
+      <div class="car-card" *ngFor="let car of paginatedCars" (click)="goToCarDetails(car.id, car.userID)">
+        <img [src]="getCarImage(car)" class="car-image" alt="{{ car.make }} {{ car.model }}">
+        <div class="car-details">
+          <h5 class="car-title">{{ car.make }} {{ car.model }}</h5>
+          <p class="car-text">{{ car.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="goToPage(currentPage - 1)" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index" [class.active]="currentPage === i + 1">
+            <a class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" (click)="goToPage(currentPage + 1)" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
