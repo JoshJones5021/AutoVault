@@ -98,8 +98,12 @@ export class CarDetailsComponent implements OnInit {
     this.http.delete(url, { params }).subscribe(
       (response) => {
         console.log('Media deleted successfully');
-        // Refresh the car details to update the media list
-        this.getCarDetails();
+        // Remove the deleted media from the car.media array
+        this.car.media.splice(this.currentMediaIndex, 1);
+        // Reset the current media index if necessary
+        if (this.currentMediaIndex >= this.car.media.length) {
+          this.currentMediaIndex = this.car.media.length - 1;
+        }
       },
       (error) => {
         console.error('Error deleting media', error);

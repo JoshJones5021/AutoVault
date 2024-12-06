@@ -41,9 +41,9 @@ export class CarListComponent implements OnInit, OnChanges {
       .set('sp', '/triggers/When_a_HTTP_request_is_received/run')
       .set('sv', '1.0')
       .set('sig', 'GMGgLH047BRHA7PF3RilT5bBbtXJWzfdqkhs8jF437U')
-      .set('make', '')
-      .set('model', '')
-      .set('search', '')
+      .set('make', this.selectedFilter === 'make' ? this.selectedSubFilter : '')
+      .set('model', this.selectedFilter === 'model' ? this.selectedSubFilter : '')
+      .set('search', this.searchText)
       .set('userID', '')
       .set('page', '1')
       .set('pageSize', '100'); // Fetch a large number of cars initially
@@ -74,23 +74,10 @@ export class CarListComponent implements OnInit, OnChanges {
       this.subFilterOptions = [];
     }
     this.selectedSubFilter = '';
-    this.applySearch();
   }
 
   applySearch(): void {
-    this.filteredCars = this.cars.filter((car) => {
-      const filterField = this.selectedFilter
-        ? car[this.selectedFilter].toLowerCase()
-        : `${car.make} ${car.model} ${car.description}`.toLowerCase();
-      const matchesSearchText = `${car.make} ${car.model} ${car.description}`.toLowerCase().includes(this.searchText.toLowerCase());
-      const matchesSubFilter = this.selectedSubFilter
-        ? car[this.selectedFilter] === this.selectedSubFilter
-        : true;
-      return matchesSearchText && matchesSubFilter;
-    });
-    this.currentPage = 1; // Reset to first page on search
-    this.totalPages = Math.ceil(this.filteredCars.length / this.itemsPerPage);
-    this.updatePaginatedCars();
+    this.getCars(); // Fetch cars with the selected filter
   }
 
   updatePaginatedCars(): void {
@@ -108,5 +95,9 @@ export class CarListComponent implements OnInit, OnChanges {
 
   goToCarDetails(carId: string, userId: string): void {
     this.router.navigate(['/cars', carId], { queryParams: { userID: userId } });
+  }
+
+  onSearch(): void {
+    this.applySearch(); // Trigger the search when the search button is clicked
   }
 }

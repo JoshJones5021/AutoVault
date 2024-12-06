@@ -12,7 +12,7 @@
 
         <ng-container *ngIf="selectedFilter">
           <label for="subFilter">{{ selectedFilter | titlecase }}:</label>
-          <select id="subFilter" [(ngModel)]="selectedSubFilter" (change)="applySearch()" class="form-select">
+          <select id="subFilter" [(ngModel)]="selectedSubFilter" class="form-select">
             <option value="">All</option>
             <option *ngFor="let option of subFilterOptions" [value]="option">{{ option }}</option>
           </select>
@@ -24,9 +24,9 @@
           type="text"
           [(ngModel)]="searchText"
           placeholder="Search cars"
-          (input)="applySearch()"
           class="form-control"
         />
+        <button (click)="onSearch()" class="btn btn-primary">Search</button>
       </div>
     </div>
   </div>
