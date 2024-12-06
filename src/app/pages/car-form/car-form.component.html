@@ -1,37 +1,37 @@
 <div class="container mt-4">
-  <h2 class="text-center">Add or Update Car</h2>
+  <h2 class="text-center" data-translate>Add or Update Car</h2>
   <div class="card-container">
     <form (ngSubmit)="onSubmit()">
       <div class="mb-3">
-        <label for="action" class="form-label">Action</label>
+        <label for="action" class="form-label" data-translate>Action</label>
         <select id="action" class="form-control" [(ngModel)]="action" name="action" (change)="onActionChange()" required>
-          <option value="add">Add Car</option>
-          <option value="update">Update Car</option>
+          <option value="add" data-translate>Add Car</option>
+          <option value="update" data-translate>Update Car</option>
         </select>
       </div>
       <div *ngIf="action === 'update'" class="mb-3">
-        <label for="carId" class="form-label">Select Car to Update</label>
+        <label for="carId" class="form-label" data-translate>Select Car to Update</label>
         <select id="carId" class="form-control" [(ngModel)]="car.id" name="carId" (change)="onCarChange()" required>
           <option *ngFor="let car of availableCars" [value]="car.id">{{ car.make }} {{ car.model }}</option>
         </select>
       </div>
       <div class="mb-3">
-        <label for="make" class="form-label">Make</label>
+        <label for="make" class="form-label" data-translate>Make</label>
         <input type="text" class="form-control" id="make" [(ngModel)]="car.make" name="make" required>
       </div>
       <div class="mb-3">
-        <label for="model" class="form-label">Model</label>
+        <label for="model" class="form-label" data-translate>Model</label>
         <input type="text" class="form-control" id="model" [(ngModel)]="car.model" name="model" required>
       </div>
       <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
+        <label for="description" class="form-label" data-translate>Description</label>
         <textarea class="form-control" id="description" [(ngModel)]="car.description" name="description" rows="3" required></textarea>
       </div>
       <div class="mb-3">
-        <label for="fileContent" class="form-label">Media Files</label>
+        <label for="fileContent" class="form-label" data-translate>Media Files</label>
         <input type="file" class="form-control" id="fileContent" (change)="onFileChange($event)" multiple #fileInput>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" data-translate>Submit</button>
     </form>
     <div *ngIf="successMessage" class="alert alert-success mt-3">
       {{ successMessage }}

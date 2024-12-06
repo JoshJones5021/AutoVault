@@ -1,24 +1,24 @@
 <div class="container mt-4">
-  <h2 class="text-center">Car List</h2>
+  <h2 class="text-center" data-translate>Car List</h2>
   <div class="row mb-3">
     <div class="col-md-12">
       <div class="filter-container">
-        <label for="filter">Filter by:</label>
+        <label for="filter" data-translate>Filter by:</label>
         <select id="filter" [(ngModel)]="selectedFilter" (change)="onFilterChange()" class="form-select">
-          <option value="">None</option>
-          <option value="make">Make</option>
-          <option value="model">Model</option>
+          <option value="" data-translate>None</option>
+          <option value="make" data-translate>Make</option>
+          <option value="model" data-translate>Model</option>
         </select>
 
         <ng-container *ngIf="selectedFilter">
-          <label for="subFilter">{{ selectedFilter | titlecase }}:</label>
+          <label for="subFilter" data-translate>{{ selectedFilter | titlecase }}:</label>
           <select id="subFilter" [(ngModel)]="selectedSubFilter" class="form-select">
-            <option value="">All</option>
+            <option value="" data-translate>All</option>
             <option *ngFor="let option of subFilterOptions" [value]="option">{{ option }}</option>
           </select>
         </ng-container>
 
-        <label for="search">Search:</label>
+        <label for="search" data-translate>Search:</label>
         <input
           id="search"
           type="text"
@@ -26,7 +26,7 @@
           placeholder="Search cars"
           class="form-control"
         />
-        <button (click)="onSearch()" class="btn btn-primary">Search</button>
+        <button (click)="onSearch()" class="btn btn-primary" data-translate>Search</button>
       </div>
     </div>
   </div>

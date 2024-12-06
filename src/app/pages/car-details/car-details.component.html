@@ -1,24 +1,24 @@
 <div class="container mt-4">
-  <h2 class="text-center">Car Details</h2>
+  <h2 class="text-center" data-translate>Car Details</h2>
   <div class="row">
     <div class="col-md-6">
       <div class="card-container">
         <form>
           <div class="mb-3">
-            <label for="make" class="form-label">Make</label>
+            <label for="make" class="form-label" data-translate>Make</label>
             <input type="text" class="form-control" id="make" [value]="car.make" readonly>
           </div>
           <div class="mb-3">
-            <label for="model" class="form-label">Model</label>
+            <label for="model" class="form-label" data-translate>Model</label>
             <input type="text" class="form-control" id="model" [value]="car.model" readonly>
           </div>
           <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
+            <label for="description" class="form-label" data-translate>Description</label>
             <textarea class="form-control" id="description" rows="3" readonly>{{ car.description }}</textarea>
           </div>
           <!-- Delete Car button -->
           <div class="mt-3 text-center">
-            <button type="button" class="btn btn-danger" (click)="deleteCar()">Delete Car</button>
+            <button type="button" class="btn btn-danger" (click)="deleteCar()" data-translate>Delete Car</button>
           </div>
         </form>
       </div>
@@ -57,7 +57,7 @@
         </div>
         <!-- Delete Media button -->
         <div class="mt-3 text-center">
-          <button type="button" class="btn btn-danger" (click)="deleteMedia()">Delete Selected Media</button>
+          <button type="button" class="btn btn-danger" (click)="deleteMedia()" data-translate>Delete Selected Media</button>
         </div>
       </div>
     </div>
