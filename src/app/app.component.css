@@ -1,42 +1,57 @@
 .navbar {
-    display: flex;
-    justify-content: space-between; /* Space between items */
-    align-items: center;
-    background-color: #f4f4f4;
-    padding: 10px 20px; /* Add padding for better alignment */
-  }
-  
-  .navbar-left {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Add spacing between buttons */
-  }
-  
-  .navbar-item h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #007bff;
-    cursor: pointer; /* Add pointer cursor */
-  }
-  
-  button {
-    padding: 5px 10px;
-    border: 1px solid #007bff; /* Add border */
-    border-radius: 5px; /* Slightly rounded edges */
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  .hidden {
-    display: none;
-  }
+  display: flex;
+  justify-content: space-between; /* Space between items */
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 10px 20px; /* Add padding for better alignment */
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add spacing between buttons */
+}
+
+.navbar-item h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #007bff;
+  cursor: pointer; /* Add pointer cursor */
+}
+
+button {
+  padding: 5px 10px;
+  border: 1px solid #007bff; /* Add border */
+  border-radius: 5px; /* Slightly rounded edges */
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Chat Icon */
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.chat-icon img {
+  width: 100%;
+  height: 100%;
+}

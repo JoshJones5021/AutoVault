@@ -10,3 +10,11 @@
 </div>
 
 <router-outlet></router-outlet>
+
+<!-- Chat Icon -->
+<div class="chat-icon" (click)="toggleChat()">
+  <img src="assets/chat-bot.png" alt="Chat Icon" />
+</div>
+
+<!-- Chat Component -->
+<app-chat *ngIf="isChatOpen" (minimize)="minimizeChat()"></app-chat>

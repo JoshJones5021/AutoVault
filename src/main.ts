@@ -3,6 +3,8 @@ import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app/app-routing.module';
+import { ChatComponent } from './app/components/chat/chat.component'; // Corrected path
+import { ChatService } from './app/services/chat.service'; // Corrected path
 
 bootstrapApplication(AppComponent, {
   providers: [provideRouter(routes), provideHttpClient()],
