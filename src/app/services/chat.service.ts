@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class ChatService {
   private endpoint = 'https://autovaulttranslate.cognitiveservices.azure.com/language/:query-knowledgebases?projectName=autovault&api-version=2021-10-01&deploymentName=production';
-//   here
 
   constructor(private http: HttpClient) {}
 

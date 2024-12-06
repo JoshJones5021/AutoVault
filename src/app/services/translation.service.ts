@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TranslationService {
-//   here
   private endpoint = 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0';
 
   constructor(private http: HttpClient) {}
