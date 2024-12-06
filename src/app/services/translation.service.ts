@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TranslationService {
   private endpoint = 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0';
+  private subscriptionKey = "5FeMh5zGcrX55M635VUZqFn7zYdVepLrXYmF0gvDOOAzSeCpUxFg";
 
   constructor(private http: HttpClient) {}
 
